@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -27,6 +28,7 @@
     "passport-github2": "^0.1.12",
     "passport-google-oauth20": "^2.0.0",
     "passport-twitter": "^1.0.4",
+    "stripe": "^9.11.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

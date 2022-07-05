@@ -12,6 +12,8 @@ const auth = require("./routes/auth")
 const users = require("./routes/users")
 const products = require("./routes/products")
 const cart = require("./routes/cart")
+const payments = require("./routes/payments")
+const webhooks = require("./routes/webhooks")
 const { useGoogleStrategy,useFacebookStrategy,useGitHubStrategy,useTwitterStrategy } = require("./middleware/authProvider")
 
 const app = express()
@@ -21,17 +23,18 @@ connection()
 
 // Utilizando middleware
 app.use(morgan("dev"))
+app.use("/api/webhooks/stripe",express.raw({type: 'application/json'}))
 app.use(express.json())
 app.use(cookie())
 app.use(cors({
-    origin:["http://localhost:3000"],
+    origin:["http://localhost:3000","http://127.0.0.1:5500"],
     credentials:true
 }))
 app.use(session({
     secret:sessionSecret,
     resave:false,
     saveUninitialized:false
-}))
+}))//Redis
 app.use(passport.initialize())
 // Usando strategias
 passport.use(useGoogleStrategy())
@@ -52,6 +55,8 @@ auth(app)
 users(app)
 products(app)
 cart(app)
+payments(app)
+webhooks(app)
 
 
 app.get("/",(req,res)=>{
