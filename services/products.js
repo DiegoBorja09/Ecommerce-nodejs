@@ -4,7 +4,7 @@ const ProductModel = require("../models/product")
 const CartModel = require("../models/cart")
 const stripe = require("stripe")(stripeSecretKey)
 
-// Consultar en la documentación los metodos para crear clientes(customers) y productos(products)
+
 
 class Products{
     async getAll(limit=20,page=1){
