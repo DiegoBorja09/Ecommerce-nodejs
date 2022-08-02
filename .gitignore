@@ -1,3 +1,2 @@
-node_modules
-static
 .env
+node_modules/
