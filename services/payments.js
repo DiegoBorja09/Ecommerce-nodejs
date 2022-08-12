@@ -2,7 +2,7 @@ const { stripeSecretKey, mercadoPagoSecretKey } = require("../config")
 const stripe = require("stripe")(stripeSecretKey)
 const mercadopago = require('mercadopago');
 mercadopago.configurations.setAccessToken(mercadoPagoSecretKey);
-const endpointSecret = "whsec_iiddyKfZnQ1qqBbF341STmZLsCz2Ftam";
+const endpointSecret = "whsec_95d653708eca75fef002f014e88702f5672c6668d21307faccd2c252766d074e";
 const CartModel = require("../models/cart")
 const UserModel = require("../models/user")
 
