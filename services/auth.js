@@ -22,6 +22,10 @@ class Auth{
     }
 
     async signup(data){
+
+        try {
+            
+         
         if(data && data.password){
             data.password = await this.#encrypt(data.password)
         }
@@ -37,7 +41,12 @@ class Auth{
                 errors:result.errors
             }
         }
-
+    }catch (error) {
+        return {
+            success:false,
+            errors:"Campos invalidos"
+        }  
+    }
         return this.#getUserData(result.user)
 
     }
